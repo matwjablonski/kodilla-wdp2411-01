@@ -75,4 +75,18 @@
     justify-content: space-between;
     align-items: center;
   }
+  .favorite {
+    color: black;
+  
+    &.active {
+      color: red;
+    }
+  }
+  .compare {
+    color: black;
+  
+    &.active {
+      color: lightgreen;
+    }
+  }
 }
