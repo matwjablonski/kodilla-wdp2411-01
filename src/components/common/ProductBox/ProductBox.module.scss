@@ -29,7 +29,7 @@
     }
 
     .buttons {
-      display: flex;
+      display: none;
       justify-content: space-between;
     }
   }
@@ -74,5 +74,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+}
+.root:hover{
+  .buttons{
+    display: flex;
+  }
+  .price{
+    .buttonPrice{
+      background-color: red;
+    }
   }
 }
