@@ -5,6 +5,7 @@
   display: inline-flex;
   height: 45px;
   color: $text-color;
+  height: 100%;
 
   .category {
     border-right: 1px solid $form-border-color;
@@ -46,7 +47,7 @@
         left: 50%;
         transform: translateX(-50%);
         z-index: 10;
-        top: calc(100% + 7px);
+        top: calc(100% + 1px);
       }
     }
 
