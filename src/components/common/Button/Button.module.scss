@@ -26,6 +26,16 @@
   font-weight: 400;
 }
 
+.strikeThrough {
+  @extend .main;
+  font-size: 13px;
+  line-height: 24px;
+  padding: 5px 10px;
+  font-weight: 400;
+  text-decoration: line-through;
+  color: #ff0000;
+}
+
 .outline {
   display: inline-block;
   padding: 5px 10px;
