@@ -76,17 +76,17 @@
     align-items: center;
   }
   .favorite {
-    color: black;
+    color: $color-black;
   
     &.active {
-      color: red;
+      color: $color-red;
     }
   }
   .compare {
-    color: black;
+    color: $color-black;
   
     &.active {
-      color: lightgreen;
+      color: $color-lightgreen;
     }
   }
 }

@@ -16,9 +16,7 @@ import { toggleFavorite } from '../../../redux/productsRedux';
 const ProductBox = ({ id, name, price, promo, stars, isFavorite, isCompared }) => {
   const dispatch = useDispatch();
   const changeFavorite = (event, productId) => {
-    if (event.preventDefault) {
-      event.preventDefault();
-    }
+    event.preventDefault();
     dispatch(toggleFavorite(productId));
   };
   return (
