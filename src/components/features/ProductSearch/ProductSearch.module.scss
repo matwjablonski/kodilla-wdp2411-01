@@ -22,16 +22,17 @@
       margin: 0;
       list-style-type: none;
       ul {
-        background-color: lightgray;
+        background-color: $color-lightgray;
         width: 100%;
         position: absolute;
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        li {
-            display: block;
-            font-size: 14px;
-            border-bottom: 1px solid black;
-        }
+      }
     }
+    
+    ul ul li {
+      display: block;
+      font-size: 14px;
+      border-bottom: 1px solid $color-black;
     }
 
     li {
@@ -56,17 +57,17 @@
           position: absolute;
           left: 50%;
           transform: translateX(-50%);
-          background-color: lightgray;
+          background-color: $color-lightgray;
       }
       li {
         display: block;
         text-align: center;
-        background-color: lightgray;
+        background-color: $color-lightgray;
         left: 50%;
         transform: translateX(-50%);
         padding: 10px;
         a {
-            color: black;
+            color: $color-black;
             display: block;
             padding: 0 25px;
         }
@@ -78,7 +79,7 @@
 
     a {
       text-decoration: none;
-      color: black;
+      color: $color-black;
     }
 
     .icon:first-child {
@@ -103,7 +104,7 @@
       position: relative;
       z-index: 1;
       outline: none;
-      option{
+      option {
         display: none;
       }
     }
@@ -114,7 +115,7 @@
     }
   }
   .category:hover{
-    background-color: lightgray;
+    background-color: $color-lightgray;
   }
 
   .searchField {
