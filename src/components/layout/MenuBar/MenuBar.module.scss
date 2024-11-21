@@ -1,8 +1,8 @@
 @import "../../../styles/settings.scss";
 
 .root {
-  box-shadow: 2px 3.464px 6px rgba(1, 2, 2, 0.2);
-  background-color: #ffffff;
+  box-shadow: 2px 3.464px 6px $menuBar-box-shadow-color;
+  background-color: $menuBar-main-background-color;
 
   :global(.container) > :global(.row) {
     height: 84px;
@@ -11,6 +11,7 @@
   .menu {
     display: flex;
     align-self: stretch;
+    background-color: $menuBar-background-color;
 
     ul {
       margin: 0;
@@ -25,26 +26,26 @@
     }
 
     a {
-      color: $text-color;
+      color: $menuBar-item-list-text-color;
       text-transform: uppercase;
       font-size: 12px;
       padding: 1rem;
       text-decoration: none;
       display: flex;
       align-items: center;
-      border-top: 4px solid #ffffff;
+      border-top: 4px solid $menuBar-item-list-border-top-color;
       font-weight: 500;
       letter-spacing: 1px;
 
       &:hover,
       &.active {
-        background-color: $primary;
-        color: #ffffff;
+        background-color: $menuBar-background-color-activ;
+        color: $menuBar-item-list-text-color-active;
         border-color: $primary;
       }
 
       &.active {
-        border-color: $text-color;
+        border-color: $menuBar-item-list-border-top-color-activ;
       }
     }
   }
