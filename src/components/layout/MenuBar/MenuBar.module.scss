@@ -12,6 +12,16 @@
       height: 53px;
     }
   }
+  :global(.open) .menuList {
+    @media (max-width: 600px){
+      display: flex !important;
+      flex-direction: column;
+      position: absolute;
+      background-color: $primary;
+      z-index: 10;
+      top: 135%;
+    }
+  }
  
 
   .menu {
@@ -100,18 +110,22 @@
   .root{
     .menu {
       flex-direction: row;
-      justify-content: space-between;
+      justify-content: flex-start;
       width: 100%;
       position: absolute;
-      ul{
+      a {
+        &:hover,
+        &.active {
+          background-color: transparent;
+        }
+      }
+      .menuList{
         display: none;
+        list-style: none;
       }
       .menuLabel{
         display: block;
       }
-    }
-    .menu .active ul {
-      display: block;
     }
   }
 }
