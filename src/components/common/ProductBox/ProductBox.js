@@ -47,9 +47,15 @@ const ProductBox = ({ id, name, price, promo, stars, isFavorite, isCompared }) =
       <div className={styles.line}></div>
       <div className={styles.actions}>
         <div className={styles.outlines}>
-          <Button variant='outline' onClick={event => changeFavorite(event, id)}>
+          <Button
+            variant='outline'
+            className={`${styles.favorite} ${isFavorite ? styles.active : ''}`}
+            onClick={event => changeFavorite(event, id)}
+          >
             <FontAwesomeIcon
-              className={`${styles.favorite} ${isFavorite ? styles.active : ''}`}
+              className={`${styles.favoriteIcon}${styles.favorite} ${
+                isFavorite ? styles.active : ''
+              }`}
               icon={faHeart}
             >
               Favorite

@@ -80,8 +80,14 @@
   
     &.active {
       color: $color-red;
+      background-color: $primary;
     }
   }
+  .favorite:hover {
+    .favoriteIcon{
+      background-color: $color-black;
+    }
+  } 
   .compare {
     color: $color-black;
   
