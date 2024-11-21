@@ -42,6 +42,8 @@
     }
   }
   .category:hover{
+    @extend %hover-effect-transform;
+    @extend %hover-effect;
     background-color: lightgray;
   }
 

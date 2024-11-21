@@ -38,6 +38,8 @@
 
       &:hover,
       &.active {
+        @extend %hover-effect-transform;
+        @extend %hover-effect;
         background-color: $primary;
         color: #ffffff;
         border-color: $primary;
