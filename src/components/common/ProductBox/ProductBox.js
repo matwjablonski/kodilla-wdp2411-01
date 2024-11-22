@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { addProductToCompare } from '../../../redux/productsCompareRedux';
+import store from '../../../redux/store';
 
 import styles from './ProductBox.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,6 +12,15 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
+
+const compare = name => {
+  const state = store.getState();
+  const productsCompare = state.compare;
+
+  if (productsCompare.length <= 3) {
+    store.dispatch(addProductToCompare(name));
+  }
+};
 
 const ProductBox = ({ name, price, promo, stars }) => (
   <div className={styles.root}>
@@ -42,7 +53,12 @@ const ProductBox = ({ name, price, promo, stars }) => (
         <Button variant='outline'>
           <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
         </Button>
-        <Button variant='outline'>
+        <Button
+          variant='outline'
+          onClick={() => {
+            compare(name);
+          }}
+        >
           <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
         </Button>
       </div>
