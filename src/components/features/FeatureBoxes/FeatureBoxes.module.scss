@@ -5,5 +5,7 @@
 }
 
 a:hover{
+  @extend %hover-effect-transform;
+  @extend %hover-effect;
   text-decoration: none;
 }

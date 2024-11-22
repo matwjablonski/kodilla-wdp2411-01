@@ -17,6 +17,8 @@
         font-size: 13px;
 
         &:hover {
+          @extend %hover-effect-transform;
+          @extend %hover-effect;
           color: $primary;
           text-decoration: none;
         }
