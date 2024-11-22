@@ -88,3 +88,9 @@
     }
   }
 }
+
+@media (max-width: 600px) {
+  .root {
+    max-height: 100px;
+  }
+}

@@ -14,7 +14,7 @@ import FeatureBox from '../../common/FeatureBox/FeatureBox';
 const FeatureBoxes = () => (
   <div className={styles.root}>
     <div className='container'>
-      <div className='row'>
+      <div className={styles.customRow}>
         <a href='#' className='col'>
           <FeatureBox icon={faTruck}>
             <h5>Free shipping</h5>
