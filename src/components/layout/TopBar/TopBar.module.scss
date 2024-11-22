@@ -40,3 +40,23 @@
     }
   }
 }
+
+@media (max-width: 600px) {
+    .topOptions {
+      ul {
+        display: flex;
+      }
+      .icon {
+        position: absolute;
+        top: 20%;
+      }
+    }
+    .topMenu {
+      .phoneTextHide {
+        display: none;
+      }
+    }
+ }
+ 
+  
+ 
