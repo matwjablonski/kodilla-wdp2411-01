@@ -17,3 +17,18 @@ $color-black: #000000;
 $color-red: #ff0000;
 
 $color-lightgreen: #90EE90;
+
+
+$hover-bg-transition: 0;
+$hover-text-transition: 0;
+$hover-transform-x: translateX(0);
+$hover-transform-y: translateY(0);
+
+%hover-effect {
+  transition: background-color $hover-bg-transition, color $hover-text-transition;
+}
+
+%hover-effect-transform {
+  transform: $hover-transform-x $hover-transform-y;
+}
+

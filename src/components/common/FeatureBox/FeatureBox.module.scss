@@ -61,6 +61,20 @@
     }
   }
 
+  &:hover {
+    @extend %hover-effect-transform;
+    @extend %hover-effect;
+    .iconWrapper {
+      &::after {
+        background-color: $primary;
+        border-color: $primary;
+      }
+    }
+    .content {
+      color: $primary;
+    }
+  }
+
   &.active {
     .iconWrapper {
       color: #ffffff;

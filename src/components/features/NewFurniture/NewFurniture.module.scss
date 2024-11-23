@@ -51,6 +51,8 @@
 
             &.active,
             &:hover {
+              @extend %hover-effect-transform;
+              @extend %hover-effect;
               &::before {
                 content: "";
                 position: absolute;
@@ -91,6 +93,8 @@
 
             &.active,
             &:hover {
+              @extend %hover-effect-transform;
+              @extend %hover-effect;
               background-color: $primary;
             }
           }

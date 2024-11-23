@@ -20,15 +20,15 @@ const ProductBox = ({ id, name, price, promo, stars, isFavorite, isCompared }) =
     dispatch(toggleFavorite(productId));
   };
   return (
-    <div className={styles.root}>
-      <div className={styles.photo}>
-        {promo && <div className={styles.sale}>{promo}</div>}
-        <div className={styles.buttons}>
-          <Button variant='small'>Quick View</Button>
-          <Button variant='small'>
-            <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
-          </Button>
-        </div>
+  <div className={styles.root}>
+    <div className={styles.photo}>
+      <img src={`/images/products/${id}.jpg`} alt={name} />
+      {promo && <div className={styles.sale}>{promo}</div>}
+      <div className={styles.buttons}>
+        <Button variant='small'>Quick View</Button>
+        <Button variant='small'>
+          <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
+        </Button>
       </div>
       <div className={styles.content}>
         <h5>{name}</h5>
