@@ -3,3 +3,9 @@
 .root {
   padding: 5rem 0;
 }
+
+a:hover{
+  @extend %hover-effect-transform;
+  @extend %hover-effect;
+  text-decoration: none;
+}

@@ -6,11 +6,32 @@
 
   :global(.container) > :global(.row) {
     height: 84px;
+    display: flex;
+    flex-direction: row;
+    @media (max-width: 1024px) {
+      height: 53px;
+    }
   }
+  :global(.open) .menuList {
+    @media (max-width: 600px){
+      display: flex !important;
+      flex-direction: column;
+      position: absolute;
+      background-color: $primary;
+      z-index: 10;
+      top: 135%;
+    }
+  }
+ 
 
   .menu {
     display: flex;
     align-self: stretch;
+
+    .menuLabel{
+        display: none;
+        cursor: pointer;
+    }
 
     ul {
       margin: 0;
@@ -38,6 +59,8 @@
 
       &:hover,
       &.active {
+        @extend %hover-effect-transform;
+        @extend %hover-effect;
         background-color: $primary;
         color: #ffffff;
         border-color: $primary;
@@ -48,4 +71,66 @@
       }
     }
   }
+
+  .hamburger {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 25px;
+      height: 3px;
+      background-color: #333;
+    }
+
+    &::before {
+      top: -8px;
+    }
+
+    &::after {
+      bottom: -8px;
+    }
+  }
 }
+
+@media (max-width: 1024px) {
+  .root{
+    .menu {
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .root{
+    .menu {
+      flex-direction: row;
+      justify-content: flex-start;
+      width: 100%;
+      position: absolute;
+      a {
+        &:hover,
+        &.active {
+          background-color: transparent;
+        }
+      }
+      .menuList{
+        display: none;
+        list-style: none;
+      }
+      .menuLabel{
+        display: block;
+      }
+    }
+  }
+}
+
+
+
