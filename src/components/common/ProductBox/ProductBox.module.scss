@@ -34,10 +34,10 @@
     }
 
     .buttons {
+      display: none;
       position: absolute;
       width: 100%;
       bottom: 0;
-      display: flex;
       justify-content: space-between;
     }
   }
@@ -82,6 +82,31 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+  .favorite {
+    color: black;
+  
+    &.active {
+      color: red;
+    }
+  }
+  .compare {
+    color: black;
+  
+    &.active {
+      color: lightgreen;
+    }
+  }
+}
+
+.root:hover{
+  .buttons{
+    display: flex;
+  }
+  .price{
+    .buttonPrice{
+      background-color: $btn-price-hover;
+    }
   }
 }
 
