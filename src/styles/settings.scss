@@ -12,6 +12,7 @@ $text-color: #2a2a2a;
 
 $form-border-color: #292929;
 
+$btn-price-hover: #ff0000;
 
 $hover-bg-transition: 0;
 $hover-text-transition: 0;
@@ -25,3 +26,4 @@ $hover-transform-y: translateY(0);
 %hover-effect-transform {
   transform: $hover-transform-x $hover-transform-y;
 }
+
