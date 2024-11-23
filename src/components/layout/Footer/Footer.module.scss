@@ -23,7 +23,12 @@
             color: $foote-list-item-text-color;
 
             &:hover {
+
               color: $foote-list-item-text-color-active;
+              
+              @extend %hover-effect-transform;
+              @extend %hover-effect;
+
             }
           }
         }
@@ -73,6 +78,10 @@
 
             &:hover {
               color: $footer-bootom-bar-social-media-icon-color-active;
+
+              @extend %hover-effect-transform;
+              @extend %hover-effect;
+
             }
           }
         }

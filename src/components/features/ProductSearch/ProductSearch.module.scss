@@ -27,13 +27,25 @@
     }
 
     select {
+      font-size: 14px;
       -webkit-appearance: none;
       border: 0;
       background-color: $productSearch-select-backgorund-color;
       padding: 5px 30px 5px 35px;
       position: relative;
       z-index: 1;
+      outline: none;
     }
+    select {
+      &:focus-visible {
+        outline: none;
+      }
+    }
+  }
+  .category:hover{
+    @extend %hover-effect-transform;
+    @extend %hover-effect;
+    background-color: lightgray;
   }
 
   .searchField {
@@ -58,5 +70,18 @@
       outline: none;
       color: $productSearch-icon-loupe-color;
     }
+  }
+}
+@media (min-width: 601px) and (max-width: 1024px) {
+  .root{
+    position: absolute;
+    margin-top: 4vh;
+  }
+}
+
+@media (max-width: 600px) {
+  .root{
+    left: 50%;
+    transform: translateX(30%);
   }
 }

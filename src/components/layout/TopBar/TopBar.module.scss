@@ -18,6 +18,10 @@
 
         &:hover {
           color: $topBar-item-text-color-activ;
+
+          @extend %hover-effect-transform;
+          @extend %hover-effect;
+
           text-decoration: none;
         }
       }

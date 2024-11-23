@@ -51,6 +51,8 @@
 
             &.active,
             &:hover {
+              @extend %hover-effect-transform;
+              @extend %hover-effect;
               &::before {
                 content: "";
                 position: absolute;
@@ -92,6 +94,10 @@
             &.active,
             &:hover {
               background-color: $newFurniture-dot-color-active;
+
+              @extend %hover-effect-transform;
+              @extend %hover-effect;
+
             }
           }
         }
