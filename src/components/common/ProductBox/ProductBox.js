@@ -81,7 +81,7 @@ const ProductBox = ({ id, name, price, promo, stars, isFavorite, isCompared }) =
 };
 
 ProductBox.propTypes = {
-  children: PropTypes.node,
+  //children: PropTypes.node,
   id: PropTypes.string,
   name: PropTypes.string,
   price: PropTypes.number,
