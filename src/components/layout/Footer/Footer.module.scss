@@ -23,6 +23,8 @@
             color: rgb(169, 169, 169);
 
             &:hover {
+              @extend %hover-effect-transform;
+              @extend %hover-effect;
               color: #ffffff;
             }
           }
@@ -72,6 +74,8 @@
             text-decoration: none;
 
             &:hover {
+              @extend %hover-effect-transform;
+              @extend %hover-effect;
               color: $primary;
             }
           }
