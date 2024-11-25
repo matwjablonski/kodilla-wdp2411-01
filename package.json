@@ -65,6 +65,7 @@
     "sass": "^1.54.3"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.25.9",
     "husky": "^3.1.0",
     "lint-staged": "^9.4.0",
     "onchange": "^6.1.0",
@@ -72,4 +73,3 @@
     "redux-devtools-extension": "^2.13.8"
   }
 }
-
