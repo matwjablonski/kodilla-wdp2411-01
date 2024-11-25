@@ -116,8 +116,9 @@
   }
   .category:hover{
     background-color: $color-lightgray;
+    @extend %hover-effect-transform;
+    @extend %hover-effect;
   }
-
   .searchField {
     display: flex;
     align-items: center;
@@ -139,5 +140,18 @@
       background-color: transparent;
       outline: none;
     }
+  }
+}
+@media (min-width: 601px) and (max-width: 1024px) {
+  .root{
+    position: absolute;
+    margin-top: 4vh;
+  }
+}
+
+@media (max-width: 600px) {
+  .root{
+    left: 50%;
+    transform: translateX(30%);
   }
 }
