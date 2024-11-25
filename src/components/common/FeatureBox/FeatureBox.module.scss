@@ -62,6 +62,8 @@
   }
 
   &:hover {
+    @extend %hover-effect-transform;
+    @extend %hover-effect;
     .iconWrapper {
       &::after {
         background-color: $primary;

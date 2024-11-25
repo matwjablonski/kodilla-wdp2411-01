@@ -65,10 +65,37 @@
       }
 
       &:hover {
+        @extend %hover-effect-transform;
+        @extend %hover-effect;
         .cartIcon {
           background-color: lighten($primary, 10%);
         }
       }
     }
+  }
+}
+
+@media (max-width: 600px) {
+  .root .phoneNumber p {
+    line-height: 15px;
+  }
+  .cart {
+    order: 2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    top: -20%;
+  }
+  .phoneNumber {
+    position: absolute;
+    margin-top: 10vh;
+    left: 100%;
+    transform: translateX(-50%);
+    .phoneNumberText {
+      font-size: 14px;
+    }
+  }
+  .logo{
+    order: 1;
   }
 }
