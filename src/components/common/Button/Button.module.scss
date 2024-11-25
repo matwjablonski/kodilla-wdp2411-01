@@ -4,6 +4,7 @@
 // }
 
 .main {
+
   background-color: #2a2a2a;
   color: #ffffff;
   font-size: 16px;
@@ -12,6 +13,8 @@
   padding: 10px 30px;
 
   &:not(.noHover):hover {
+    @extend %hover-effect-transform;
+    @extend %hover-effect;
     color: #ffffff !important;
     background-color: $primary;
     text-decoration: none;
@@ -45,6 +48,8 @@
   line-height: 22px;
 
   &:not(.noHover):hover {
+    @extend %hover-effect-transform;
+    @extend %hover-effect;
     background-color: #2a2a2a;
     color: #ffffff;
   }
