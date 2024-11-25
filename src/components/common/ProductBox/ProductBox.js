@@ -59,7 +59,12 @@ const ProductBox = ({ name, price, promo, stars, id, isFavorite, isCompared }) =
             Favorite
           </FontAwesomeIcon>
         </Button>
-        <Button variant='outline'>
+        <Button
+          variant='outline'
+          onClick={() => {
+            compare(id);
+          }}
+        >
           <FontAwesomeIcon
             className={`${styles.compare} ${isCompared ? styles.active : ''}`}
             icon={faExchangeAlt}
