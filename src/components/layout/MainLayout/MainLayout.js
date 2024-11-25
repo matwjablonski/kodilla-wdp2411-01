@@ -9,8 +9,8 @@ const MainLayout = ({ children }) => (
   <div>
     <Header />
     {children}
-    <Footer />
     <StickyBar />
+    <Footer />
   </div>
 );
 
