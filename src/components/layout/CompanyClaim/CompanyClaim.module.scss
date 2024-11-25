@@ -47,11 +47,9 @@
       }
 
       .cartCounter {
-        width: 28px;
-        height: 27px;
         border-radius: 14px;
         background-color: $header-bg;
-        display: flex;
+        display: inline-block;
         align-items: center;
         justify-content: center;
         font-size: 14px;
@@ -60,13 +58,44 @@
         top: 50%;
         right: 0;
         transform: translate(50%, -50%);
+        padding: 5px 10px;
+        min-width: 28px;
+        height: auto;
+        left: 30px;
       }
 
       &:hover {
+        @extend %hover-effect-transform;
+        @extend %hover-effect;
         .cartIcon {
           background-color: lighten($primary, 10%);
         }
       }
     }
+  }
+}
+
+@media (max-width: 600px) {
+  .root .phoneNumber p {
+    line-height: 15px;
+  }
+  .cart {
+    order: 2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    top: -20%;
+  }
+  .phoneNumber {
+    position: absolute;
+    margin-top: 10vh;
+    left: 100%;
+    transform: translateX(-50%);
+    .phoneNumberText {
+      font-size: 14px;
+    }
+  }
+  .logo{
+    order: 1;
   }
 }
