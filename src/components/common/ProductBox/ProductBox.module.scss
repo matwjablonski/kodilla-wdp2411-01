@@ -7,7 +7,6 @@
 
   .photo {
     position: relative;
-    padding: 80% 10px 0 10px;
     background: {
       color: #f4f5f7;
       size: contain;
@@ -16,6 +15,12 @@
     }
     overflow: hidden;
     align-items: flex-end;
+    
+    img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
 
     .sale {
       position: absolute;
@@ -29,7 +34,10 @@
     }
 
     .buttons {
-      display: flex;
+      display: none;
+      position: absolute;
+      width: 100%;
+      bottom: 0;
       justify-content: space-between;
     }
   }
@@ -75,4 +83,30 @@
     justify-content: space-between;
     align-items: center;
   }
+  .favorite {
+    color: black;
+  
+    &.active {
+      color: red;
+    }
+  }
+  .compare {
+    color: black;
+  
+    &.active {
+      color: lightgreen;
+    }
+  }
 }
+
+.root:hover{
+  .buttons{
+    display: flex;
+  }
+  .price{
+    .buttonPrice{
+      background-color: $btn-price-hover;
+    }
+  }
+}
+
