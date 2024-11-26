@@ -71,23 +71,23 @@ const ProductBox = ({ id, name, price, oldPrice, promo, stars, isFavorite, isCom
             </Button>
           </div>
           <div className={styles.priceBox}>
-        <div className={styles.price}>
-          <Button noHover variant='small'>
+            <div className={styles.price}>
+              <Button noHover variant='small'>
             $ {price}
-          </Button>
-        </div>
+              </Button>
+            </div>
 
-        {oldPrice && (
-          <div className={styles.price}>
-            <Button noHover variant='strikeThrough'>
+            {oldPrice && (
+              <div className={styles.price}>
+                <Button noHover variant='strikeThrough'>
               $ {oldPrice}
-            </Button>
+                </Button>
+              </div>
+            )}
           </div>
-        )}
+        </div>
       </div>
-     </div>
     </div>
-   </div>
   );
 };
 
