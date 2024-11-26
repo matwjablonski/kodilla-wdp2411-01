@@ -1,19 +1,20 @@
 @import "../../../styles/settings.scss";
 
 .root {
-  border: 1px solid $form-border-color;
+  border: 1px solid $productSearch-border-color;
   display: inline-flex;
   height: 45px;
-  color: $text-color;
+  // color: $text-color;
+  color: $productSearch-drop-down-icon-color;
 
   .category {
-    border-right: 1px solid $form-border-color;
+    border-right: 1px solid $productSearch-border-color;
     display: flex;
     align-items: center;
     position: relative;
 
     .icon:first-child {
-      color: $primary;
+      color: $productSearch-icon-color;
       position: absolute;
       left: 10px;
       z-index: 0;
@@ -29,7 +30,7 @@
       font-size: 14px;
       -webkit-appearance: none;
       border: 0;
-      background-color: transparent;
+      background-color: $productSearch-select-backgorund-color;
       padding: 5px 30px 5px 35px;
       position: relative;
       z-index: 1;
@@ -58,14 +59,15 @@
       outline: none;
 
       &::placeholder {
-        color: $text-color;
+        color: $productSearch-placeholder-color;
       }
     }
 
     button {
       border: 0;
-      background-color: transparent;
+      background-color: $productSearch-icon-loupe-background-color;
       outline: none;
+      color: $productSearch-icon-loupe-color;
     }
   }
 }
