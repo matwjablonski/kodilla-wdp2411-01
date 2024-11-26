@@ -87,13 +87,15 @@
 
 @media (max-width: 600px) {
   .root{
-    .footerLinks{
-      margin-left: 10px;
-    }
     img{
       position: absolute;
-      max-width: 200px;
-      right: 5%;
+      right: 10%;
+    }
+    .copyright p{
+      font-size: 12px !important;
+    }
+    .socialMedia a{
+      font-size: 12px !important;
     }
   }
 }
