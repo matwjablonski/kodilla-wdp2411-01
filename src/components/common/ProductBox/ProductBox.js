@@ -13,6 +13,7 @@ import {
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
 
+
 const compare = id => {
   const state = store.getState();
   const productsCompare = state.compare;
@@ -22,7 +23,18 @@ const compare = id => {
   }
 };
 
-const ProductBox = ({ name, price, promo, stars, id, isFavorite, isCompared }) => (
+
+const ProductBox = ({
+  name,
+  price,
+  oldPrice,
+  promo,
+  stars,
+  id,
+  isFavorite,
+  isCompared,
+}) => (
+
   <div className={styles.root}>
     <div className={styles.photo}>
       <img src={`/images/products/${id}.jpg`} alt={name} />
@@ -74,10 +86,20 @@ const ProductBox = ({ name, price, promo, stars, id, isFavorite, isCompared }) =
           </FontAwesomeIcon>
         </Button>
       </div>
-      <div className={styles.price}>
-        <Button className={styles.buttonPrice} noHover variant='small'>
-          $ {price}
-        </Button>
+      <div className={styles.priceBox}>
+        <div className={styles.price}>
+          <Button noHover variant='small'>
+            $ {price}
+          </Button>
+        </div>
+
+        {oldPrice && (
+          <div className={styles.price}>
+            <Button noHover variant='strikeThrough'>
+              $ {oldPrice}
+            </Button>
+          </div>
+        )}
       </div>
     </div>
   </div>
@@ -87,6 +109,7 @@ ProductBox.propTypes = {
   children: PropTypes.node,
   name: PropTypes.string,
   price: PropTypes.number,
+  oldPrice: PropTypes.number,
   promo: PropTypes.string,
   stars: PropTypes.number,
   isFavorite: PropTypes.bool,
