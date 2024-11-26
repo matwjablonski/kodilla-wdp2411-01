@@ -4,18 +4,20 @@
 // }
 
 .main {
+  background-color: $button-background-color;
+  color: $button-text-color;
 
-  background-color: #2a2a2a;
-  color: #ffffff;
   font-size: 16px;
   line-height: 24px;
   font-weight: 600;
   padding: 10px 30px;
 
   &:not(.noHover):hover {
+    color: $button-text-color !important;
+
     @extend %hover-effect-transform;
     @extend %hover-effect;
-    color: #ffffff !important;
+
     background-color: $primary;
     text-decoration: none;
   }
@@ -29,18 +31,29 @@
   font-weight: 400;
 }
 
+.strikeThrough {
+  @extend .main;
+  font-size: 13px;
+  line-height: 24px;
+  padding: 5px 10px;
+  font-weight: 400;
+  text-decoration: line-through;
+  color: $red-line-through;
+}
+
 .outline {
   display: inline-block;
   padding: 5px 10px;
-  border: 1px solid #2a2a2a;
-  color: #2a2a2a;
+  border: 1px solid $button-border-color;
+  color: $button-icon-color;
   font-size: 13px;
   line-height: 22px;
 
   &:not(.noHover):hover {
+    background-color: $button-background-color;
+    color: $button-text-color;
+
     @extend %hover-effect-transform;
     @extend %hover-effect;
-    background-color: #2a2a2a;
-    color: #ffffff;
   }
 }

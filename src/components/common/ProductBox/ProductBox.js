@@ -13,7 +13,7 @@ import Button from '../Button/Button';
 import { useDispatch } from 'react-redux';
 import { toggleFavorite } from '../../../redux/productsRedux';
 
-const ProductBox = ({ id, name, price, promo, stars, isFavorite, isCompared }) => {
+const ProductBox = ({ id, name, price, oldPrice, promo, stars, isFavorite, isCompared }) => {
   const dispatch = useDispatch();
   const changeFavorite = (event, productId) => {
     event.preventDefault();
@@ -70,14 +70,24 @@ const ProductBox = ({ id, name, price, promo, stars, isFavorite, isCompared }) =
               </FontAwesomeIcon>
             </Button>
           </div>
+          <div className={styles.priceBox}>
+        <div className={styles.price}>
+          <Button noHover variant='small'>
+            $ {price}
+          </Button>
+        </div>
+
+        {oldPrice && (
           <div className={styles.price}>
-            <Button noHover variant='small'>
-              $ {price}
+            <Button noHover variant='strikeThrough'>
+              $ {oldPrice}
             </Button>
           </div>
-        </div>
+        )}
       </div>
+     </div>
     </div>
+   </div>
   );
 };
 
@@ -86,6 +96,7 @@ ProductBox.propTypes = {
   id: PropTypes.string,
   name: PropTypes.string,
   price: PropTypes.number,
+  oldPrice: PropTypes.number,
   promo: PropTypes.string,
   stars: PropTypes.number,
   isFavorite: PropTypes.bool,
