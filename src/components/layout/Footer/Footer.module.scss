@@ -84,3 +84,16 @@
     }
   }
 }
+
+@media (max-width: 600px) {
+  .root{
+    .footerLinks{
+      margin-left: 10px;
+    }
+    img{
+      position: absolute;
+      max-width: 200px;
+      right: 5%;
+    }
+  }
+}
