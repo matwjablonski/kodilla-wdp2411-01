@@ -6,14 +6,14 @@
     position: relative;
 
     :global(.row) > * {
-      border-bottom: 4px solid #e2e2e2;
+      border-bottom: 4px solid $newFurniture-border-bottom-color;
     }
 
     .heading {
       position: relative;
 
       h3 {
-        color: $primary;
+        color: $newFurniture-main-text-color;
         text-transform: uppercase;
         font-size: 20px;
         line-height: 38px;
@@ -27,7 +27,7 @@
         bottom: -4px;
         left: 0;
         width: 45px;
-        border-bottom: 4px solid $primary;
+        border-bottom: 4px solid $newFurniture-border-bottom-detail;
       }
     }
 
@@ -43,7 +43,7 @@
           font-weight: 600;
 
           a {
-            color: rgb(42, 42, 42);
+            color: $newFurniture-item-list-color;
             position: relative;
             text-decoration: none;
             font-size: 18px;
@@ -59,7 +59,7 @@
                 bottom: -4px;
                 left: 0;
                 width: 100%;
-                border-bottom: 4px solid $primary;
+                border-bottom: 4px solid $newFurniture-border-bottom-detail-active;
               }
             }
           }
@@ -76,7 +76,7 @@
         margin: 0;
         padding: 0 0 0 1rem;
         list-style: none;
-        background-color: #ffffff;
+        background-color: $newFurniture-background-dot-color;
         transform: translateY(15px);
 
         li {
@@ -88,14 +88,16 @@
             width: 13px;
             height: 13px;
             border-radius: 6px;
-            background-color: #e1e1e1;
+            background-color: $newFurniture-dot-color;
             font-size: 0;
 
             &.active,
             &:hover {
+              background-color: $newFurniture-dot-color-active;
+
               @extend %hover-effect-transform;
               @extend %hover-effect;
-              background-color: $primary;
+
             }
           }
         }
