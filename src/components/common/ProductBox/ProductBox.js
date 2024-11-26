@@ -61,8 +61,9 @@ const ProductBox = ({ name, price, promo, stars, id, isFavorite, isCompared }) =
         </Button>
         <Button
           variant='outline'
-          onClick={() => {
+          onClick={e => {
             compare(id);
+            e.preventDefault();
           }}
         >
           <FontAwesomeIcon
