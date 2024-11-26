@@ -98,9 +98,10 @@
       color: $color-lightgreen;
     }
   }
+}
 
-.root:hover{
-  .buttons{
+.root:hover {
+  .buttons {
     display: flex;
   }
   .price{
