@@ -75,7 +75,7 @@ const ProductBox = ({
           variant='outline'
           onClick={e => {
             compare(id);
-            e.preventDefault();
+            // e.preventDefault();
           }}
         >
           <FontAwesomeIcon
