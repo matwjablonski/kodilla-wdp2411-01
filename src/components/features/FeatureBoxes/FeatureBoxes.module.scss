@@ -2,12 +2,12 @@
 
 .root {
   padding: 5rem 0;
-  .customRow {
-      display: flex !important;
-      flex-wrap: wrap !important;
-      margin-right: -15px !important;
-      margin-left: -15px !important;
-  }
+  // .customRow {
+  //     display: flex !important;
+  //     flex-wrap: wrap !important;
+  //     margin-right: -15px !important;
+  //     margin-left: -15px !important;
+  // }
 }
 
 a:hover{
@@ -16,18 +16,7 @@ a:hover{
   text-decoration: none;
 }
 
-@media (max-width: 1024px) {
-  .customRow > *{
-    flex: 1 1 calc(50% - 16px);
-    margin-top: 10px;
-  }
-}
-
 @media (max-width: 600px) {
-  .customRow > *{
-    flex: 1 1 calc(50% - 16px);
-    margin-top: 10px;
-  }
   h5 {
     font-size: 13px;
   }
