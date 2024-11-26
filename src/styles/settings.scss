@@ -10,6 +10,7 @@ $text-color: #2a2a2a;
 $form-border-color: #292929;
 
 
+
 $header-bg: #363636;
 $footer-bg: #363636;
 $header-topbar-bg: #434343;
@@ -95,6 +96,9 @@ $topBar-background-color: $header-topbar-bg;
 $topBar-item-text-color: #ffffff;
 $topBar-item-text-color-activ: $primary;
 
+$red-line-through: #ff0000;
+
+
 
 
 $btn-price-hover: #ff0000;
@@ -113,3 +117,4 @@ $hover-transform-y: translateY(0);
   transform: $hover-transform-x $hover-transform-y;
 }
 
+$red-line-through: #ff0000;

@@ -15,7 +15,7 @@
     }
     overflow: hidden;
     align-items: flex-end;
-    
+
     img {
       width: 100%;
       height: 200px;
@@ -83,16 +83,20 @@
     justify-content: space-between;
     align-items: center;
   }
+
+  .priceBox{
+    display: flex;
+  }
   .favorite {
     color: black;
-  
+
     &.active {
       color: red;
     }
   }
   .compare {
     color: black;
-  
+
     &.active {
       color: lightgreen;
     }

@@ -105,3 +105,12 @@
     }
   }
 }
+
+@media (max-width: 600px) {
+  .root {
+    .itemDiv{
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+  }
+}
