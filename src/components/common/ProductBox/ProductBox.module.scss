@@ -34,10 +34,10 @@
     }
 
     .buttons {
+      display: none;
       position: absolute;
       width: 100%;
       bottom: 0;
-      display: flex;
       justify-content: space-between;
     }
   }
@@ -96,6 +96,16 @@
   
     &.active {
       color: $color-lightgreen;
+    }
+  }
+
+.root:hover{
+  .buttons{
+    display: flex;
+  }
+  .price{
+    .buttonPrice{
+      background-color: $btn-price-hover;
     }
   }
 }
