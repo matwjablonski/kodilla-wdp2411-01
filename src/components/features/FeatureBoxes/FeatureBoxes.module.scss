@@ -9,3 +9,13 @@ a:hover{
   @extend %hover-effect;
   text-decoration: none;
 }
+
+@media (max-width: 600px) {
+  h5 {
+    font-size: 13px;
+  }
+  p {
+    font-size: 9px;
+  }
+}
+
