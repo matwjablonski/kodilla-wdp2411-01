@@ -4,7 +4,6 @@
   border: 1px solid $productSearch-border-color;
   display: inline-flex;
   height: 45px;
-  // color: $text-color;
   color: $productSearch-drop-down-icon-color;
 
   .category {
@@ -12,6 +11,76 @@
     display: flex;
     align-items: center;
     position: relative;
+
+    .selectCategory{
+      display: flex;
+      align-items: center;
+    }
+
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+      ul {
+        background-color: $color-lightgray;
+        width: 100%;
+        position: absolute;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      }
+    }
+    
+    ul ul li {
+      display: block;
+      font-size: 14px;
+      border-bottom: 1px solid $color-black;
+    }
+
+    li {
+      display: inline-block;
+      margin-right: 12px;
+      position: relative;
+      width: 100%;
+      ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        top: calc(100% + 1px);
+      }
+    }
+
+    li:hover {
+      ul {
+          display: block;
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          background-color: $color-lightgray;
+      }
+      li {
+        display: block;
+        text-align: center;
+        background-color: $color-lightgray;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 10px;
+        a {
+            color: $color-black;
+            display: block;
+            padding: 0 25px;
+        }
+        a:hover {
+            color: $primary;
+        }
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: $color-black;
+    }
 
     .icon:first-child {
       color: $productSearch-icon-color;
@@ -35,6 +104,9 @@
       position: relative;
       z-index: 1;
       outline: none;
+      option {
+        display: none;
+      }
     }
     select {
       &:focus-visible {
@@ -43,9 +115,9 @@
     }
   }
   .category:hover{
+    background-color: $color-lightgray;
     @extend %hover-effect-transform;
     @extend %hover-effect;
-    background-color: lightgray;
   }
   .searchField {
     display: flex;
