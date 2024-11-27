@@ -1,16 +1,105 @@
 $base-padding: 24px;
 
-$header-topbar-bg: #434343;
-$header-bg: #363636;
-
+//COLORS NOT USED ID PROJEKT
 $footer-claim-bg: #2a2a2a;
-$footer-bg: #363636;
+// -------------------
 
+//COLORS USED IN PROJEKT
 $primary: #d58e32;
-
 $text-color: #2a2a2a;
-
 $form-border-color: #292929;
+
+
+
+$header-bg: #363636;
+$footer-bg: #363636;
+$header-topbar-bg: #434343;
+
+//IconButton Component
+$button-background-color: #2a2a2a;
+$button-text-color: #ffffff;
+$button-border-color: #2a2a2a;
+$button-icon-color: #2a2a2a;
+
+//FeatureBox Component
+$featureBox-border-color: #b6b6b6;
+$featureBox-background-color: #ffffff;
+$featureBox-text-color: #2a2a2a;
+$featureBox-background-color-activ: $primary;
+$featureBox-border-color-activ: $primary;
+$featureBox-text-color-activ: $primary;
+
+//ProductBox Component
+$productBox-background-color: #ffffff;
+$productBox-border-color: #e1e1e1;
+$productBox-background-photo-color: #f4f5f7;
+$productBox-sale-icon-background-color: #292929;
+$productBox-sale-icon-text-color: #ffffff;
+$productBox-main-text-color: $primary;
+$productBox-stars-color:#2a2a2a;
+$productBox-border-bottom-color: #2a2a2a;
+$productBox-border-bottom-color-active: $primary;
+
+//NewFurniture Component
+
+$newFurniture-border-bottom-color: #e2e2e2;
+$newFurniture-border-bottom-detail: $primary;
+$newFurniture-border-bottom-detail-active: $primary;
+$newFurniture-main-text-color: $primary;
+$newFurniture-item-list-color: #2a2a2a;
+$newFurniture-background-dot-color: #ffffff;
+$newFurniture-dot-color: #e1e1e1;
+$newFurniture-dot-color-active: $primary;
+
+//ProductSearch Component
+$productSearch-border-color: $form-border-color;
+$productSearch-icon-color: $primary;
+$productSearch-drop-down-icon-color: $text-color;
+$productSearch-select-backgorund-color: transparent;
+$productSearch-placeholder-color: $text-color;
+$productSearch-icon-loupe-background-color: transparent;
+$productSearch-icon-loupe-color: #2a2a2a;
+
+//CompanyClaim Component
+$companyClaim-main-background-color: $header-bg;
+$companyClaim-phone-number-color: #d8d8d8;
+$companyClaim-phone-icon-color: $primary;
+$companyClaim-cart-icon-color: #ffffff;
+$companyClaim-cart-icon-background-color: $primary;
+$companyClaim-cart-icon-background-color-active: lighten($primary, 10%);
+$companyClaim-cart-counter-background-color: $header-bg;
+$companyClaim-cart-counter-number-color: #e0e3ed;
+
+
+//Footer Component
+$footer-background-color: $footer-bg;
+$footer-mani-title-menu-text-color: #ffffff;
+$foote-list-item-text-color: #a9a9a9;
+$footer-bootom-bar-background-color: $footer-claim-bg;
+$footer-bootom-bar-copyright-text-color: #a9a9a9;
+$footer-bootom-bar-social-media-icon-color: #a9a9a9;
+$footer-bootom-bar-social-media-icon-color-active: $primary;
+$foote-list-item-text-color-active: #ffffff;
+
+//MenuBar Component
+$menuBar-main-background-color: #ffffff;
+$menuBar-background-color: #ffffff;
+$menuBar-box-shadow-color: #01020233;
+$menuBar-item-list-text-color: $text-color;
+$menuBar-item-list-border-top-color: #ffffff;
+$menuBar-background-color-activ: $primary;
+$menuBar-item-list-text-color-active: #ffffff;
+$menuBar-item-list-border-top-color-activ: $text-color;
+
+//TopBar Component
+$topBar-background-color: $header-topbar-bg;
+$topBar-item-text-color: #ffffff;
+$topBar-item-text-color-activ: $primary;
+
+$red-line-through: #ff0000;
+
+
+
 
 
 //StickyBar Component
@@ -24,6 +113,7 @@ $StickyBar-foto-box-color: #000000;
 $StickyBar-foto-box-icon-color: #000000;
 
 $btn-price-hover: #ff0000;
+
 
 $hover-bg-transition: 0;
 $hover-text-transition: 0;
@@ -39,3 +129,4 @@ $hover-transform-y: translateY(0);
 }
 
 
+$red-line-through: #ff0000;
