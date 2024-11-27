@@ -1,0 +1,125 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  background-color: #ffffff;
+  border: 1px solid #e1e1e1;
+  margin-bottom: 2rem;
+
+  .countdownTimer{
+    display: none;
+  }
+
+  .photo {
+    display: flex;
+    position: relative;
+    background-color: #f4f5f7;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    align-items: flex-end;
+    height: 300px;
+    
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .sale {
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #292929;
+      border-radius: 50%;
+      color: #ffffff;
+      padding: 30px 15px 5px 15px;
+    }
+
+    .buttons {
+      display: none;
+      position: absolute;
+      width: 100%;
+      bottom: 50%;
+      left: 35%;
+      justify-content: space-between;
+    }
+  }
+
+  .content {
+    text-align: center;
+    padding: 20px;
+
+    h5 {
+      color: $primary;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 1px;
+    }
+
+    .stars {
+      a {
+        text-decoration: none;
+        color: rgb(42, 42, 42);
+      }
+    }
+  }
+
+  .line {
+    margin: 0 10px;
+    border-bottom: 1px solid #2a2a2a;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      left: 50%;
+      width: 30px;
+      border-bottom: 4px solid $primary;
+      transform: translateX(-50%);
+    }
+  }
+
+  .actions {
+    padding: 15px 10px 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .favorite {
+    color: black;
+  
+    &.active {
+      color: red;
+    }
+  }
+  .compare {
+    color: black;
+  
+    &.active {
+      color: lightgreen;
+    }
+  }
+}
+
+.root:hover{
+  .countdownTimer{
+    display: flex;
+    position: absolute;
+    top: 65%;
+    left: 14%;
+  }
+  img{
+    filter: brightness(0.5);
+  }
+  .buttons{
+    display: flex;
+  }
+  .price{
+    .buttonPrice{
+      background-color: $btn-price-hover;
+    }
+  }
+}
+

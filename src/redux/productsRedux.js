@@ -5,6 +5,9 @@ export const getCount = ({ products }) => products.length;
 export const getNew = ({ products }) =>
   products.filter(item => item.newFurniture === true);
 
+export const getHotDeals = ({ products }) =>
+  products.filter(item => item.HotDeal === true);
+
 /* reducer */
 export default function reducer(statePart = [], action = {}) {
   switch (action.type) {
