@@ -40,6 +40,18 @@ class NewFurniture extends React.Component {
       );
     }
 
+    const handleLeftSwipe = () => {
+      if (activePage < pagesCount - 1) {
+        this.setState({ activePage: activePage + 1 });
+      }
+    };
+
+    const handleRightSwipe = () => {
+      if (activePage > 0) {
+        this.setState({ activePage: activePage - 1 });
+      }
+    };
+
     return (
       <div className={styles.root}>
         <div className='container'>
@@ -67,7 +79,7 @@ class NewFurniture extends React.Component {
               </div>
             </div>
           </div>
-          <Swipeable>
+          <Swipeable rightAction={handleRightSwipe} leftAction={handleLeftSwipe}>
             <div className='row'>
               {categoryProducts
                 .slice(activePage * 8, (activePage + 1) * 8)
