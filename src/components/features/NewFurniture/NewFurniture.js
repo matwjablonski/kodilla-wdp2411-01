@@ -10,6 +10,8 @@ class NewFurniture extends React.Component {
     activePage: 0,
     activeCategory: 'bed',
     fadeState: '',
+    pendingCategory: null,
+    pendingPage: null,
   };
 
   handlePageChange = newPage => {
@@ -31,16 +33,28 @@ class NewFurniture extends React.Component {
     }
   };
 
-  startFadeTransition(callback) {
-    this.setState({ fadeState: 'fade-out' });
-    setTimeout(() => {
-      callback();
-      this.setState({ fadeState: 'fade-in' });
-      setTimeout(() => {
-        this.setState({ fadeState: '' });
-      }, 500);
-    }, 500);
-  }
+  handleLeftSwipe = () => {
+    const { activePage } = this.state;
+    const pagesCount = Math.ceil(this.getCategoryProducts().length / 8);
+
+    if (activePage < pagesCount - 1) {
+      this.setState({
+        fadeState: 'fade-out',
+        pendingPage: activePage + 1,
+      });
+    }
+  };
+
+  handleRightSwipe = () => {
+    const { activePage } = this.state;
+
+    if (activePage > 0) {
+      this.setState({
+        fadeState: 'fade-out',
+        pendingPage: activePage - 1,
+      });
+    }
+  };
 
   handleAnimationEnd = () => {
     if (this.state.fadeState === 'fade-out') {
@@ -56,47 +70,36 @@ class NewFurniture extends React.Component {
         pendingPage: null,
       }));
     } else if (this.state.fadeState === 'fade-in') {
-      // Po zakończeniu fade-in resetujemy fadeState
       this.setState({ fadeState: '' });
     }
   };
 
+  getCategoryProducts = () => {
+    const { products } = this.props;
+    const { activeCategory } = this.state;
+    return products.filter(item => item.category === activeCategory);
+  };
+
   render() {
-    const { categories, products } = this.props;
+    const { categories } = this.props;
     const { activeCategory, activePage } = this.state;
 
-    const categoryProducts = products.filter(item => item.category === activeCategory);
+    const categoryProducts = this.getCategoryProducts();
     const pagesCount = Math.ceil(categoryProducts.length / 8);
 
     const dots = [];
     for (let i = 0; i < pagesCount; i++) {
       dots.push(
-        <li>
+        <li key={i}>
           <a
             onClick={() => this.handlePageChange(i)}
-            className={i === activePage && styles.active}
+            className={i === activePage ? styles.active : ''}
           >
             page {i}
           </a>
         </li>
       );
     }
-
-    const handleLeftSwipe = () => {
-      if (activePage < pagesCount - 1) {
-        this.startFadeTransition(() => {
-          this.setState({ activePage: activePage + 1 });
-        });
-      }
-    };
-
-    const handleRightSwipe = () => {
-      if (activePage > 0) {
-        this.startFadeTransition(() => {
-          this.setState({ activePage: activePage - 1 });
-        });
-      }
-    };
 
     return (
       <div className={styles.root}>
@@ -111,7 +114,7 @@ class NewFurniture extends React.Component {
                   {categories.map(item => (
                     <li key={item.id}>
                       <a
-                        className={item.id === activeCategory && styles.active}
+                        className={item.id === activeCategory ? styles.active : ''}
                         onClick={() => this.handleCategoryChange(item.id)}
                       >
                         {item.name}
@@ -125,7 +128,10 @@ class NewFurniture extends React.Component {
               </div>
             </div>
           </div>
-          <Swipeable rightAction={handleRightSwipe} leftAction={handleLeftSwipe}>
+          <Swipeable
+            rightAction={this.handleRightSwipe}
+            leftAction={this.handleLeftSwipe}
+          >
             <div
               className={`${styles.products} ${
                 this.state.fadeState ? styles[this.state.fadeState] : ''
@@ -153,7 +159,6 @@ class NewFurniture extends React.Component {
 }
 
 NewFurniture.propTypes = {
-  children: PropTypes.node,
   categories: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
