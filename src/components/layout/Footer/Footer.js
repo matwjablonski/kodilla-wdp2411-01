@@ -102,7 +102,9 @@ const Footer = ({ children }) => (
         <div className='row align-items-center'>
           <div className='col-lg col-md-12 col-12 text-center'></div>
           <div className={'col-lg col-md-6 col-6 text-center ' + styles.copyright}>
-            <p>©Copyright 2016 Bazar | All Rights Reserved</p>
+            <p className={styles.copyrightText}>
+              ©Copyright 2016 Bazar | All Rights Reserved
+            </p>
           </div>
           <div className={'col-lg col-md-6 col-6 text-right ' + styles.socialMedia}>
             <ul>
