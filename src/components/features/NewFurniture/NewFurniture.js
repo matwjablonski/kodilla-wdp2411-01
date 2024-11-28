@@ -9,48 +9,97 @@ class NewFurniture extends React.Component {
   state = {
     activePage: 0,
     activeCategory: 'bed',
+    fadeState: '',
+    pendingCategory: null,
+    pendingPage: null,
   };
 
-  handlePageChange(newPage) {
-    this.setState({ activePage: newPage });
-  }
+  handlePageChange = newPage => {
+    if (newPage !== this.state.activePage) {
+      this.setState({
+        fadeState: 'fade-out',
+        pendingPage: newPage,
+      });
+    }
+  };
 
-  handleCategoryChange(newCategory) {
-    this.setState({ activeCategory: newCategory });
-  }
+  handleCategoryChange = newCategory => {
+    if (newCategory !== this.state.activeCategory) {
+      this.setState({
+        fadeState: 'fade-out',
+        pendingCategory: newCategory,
+        pendingPage: 0,
+      });
+    }
+  };
+
+  handleLeftSwipe = () => {
+    const { activePage } = this.state;
+    const pagesCount = Math.ceil(this.getCategoryProducts().length / 8);
+
+    if (activePage < pagesCount - 1) {
+      this.setState({
+        fadeState: 'fade-out',
+        pendingPage: activePage + 1,
+      });
+    }
+  };
+
+  handleRightSwipe = () => {
+    const { activePage } = this.state;
+
+    if (activePage > 0) {
+      this.setState({
+        fadeState: 'fade-out',
+        pendingPage: activePage - 1,
+      });
+    }
+  };
+
+  handleAnimationEnd = () => {
+    if (this.state.fadeState === 'fade-out') {
+      this.setState(prevState => ({
+        activeCategory:
+          prevState.pendingCategory !== null
+            ? prevState.pendingCategory
+            : prevState.activeCategory,
+        activePage:
+          prevState.pendingPage !== null ? prevState.pendingPage : prevState.activePage,
+        fadeState: 'fade-in',
+        pendingCategory: null,
+        pendingPage: null,
+      }));
+    } else if (this.state.fadeState === 'fade-in') {
+      this.setState({ fadeState: '' });
+    }
+  };
+
+  getCategoryProducts = () => {
+    const { products } = this.props;
+    const { activeCategory } = this.state;
+    return products.filter(item => item.category === activeCategory);
+  };
 
   render() {
-    const { categories, products } = this.props;
+    const { categories } = this.props;
     const { activeCategory, activePage } = this.state;
 
-    const categoryProducts = products.filter(item => item.category === activeCategory);
+    const categoryProducts = this.getCategoryProducts();
     const pagesCount = Math.ceil(categoryProducts.length / 8);
 
     const dots = [];
     for (let i = 0; i < pagesCount; i++) {
       dots.push(
-        <li>
+        <li key={i}>
           <a
             onClick={() => this.handlePageChange(i)}
-            className={i === activePage && styles.active}
+            className={i === activePage ? styles.active : ''}
           >
             page {i}
           </a>
         </li>
       );
     }
-
-    const handleLeftSwipe = () => {
-      if (activePage < pagesCount - 1) {
-        this.setState({ activePage: activePage + 1 });
-      }
-    };
-
-    const handleRightSwipe = () => {
-      if (activePage > 0) {
-        this.setState({ activePage: activePage - 1 });
-      }
-    };
 
     return (
       <div className={styles.root}>
@@ -65,7 +114,7 @@ class NewFurniture extends React.Component {
                   {categories.map(item => (
                     <li key={item.id}>
                       <a
-                        className={item.id === activeCategory && styles.active}
+                        className={item.id === activeCategory ? styles.active : ''}
                         onClick={() => this.handleCategoryChange(item.id)}
                       >
                         {item.name}
@@ -79,18 +128,28 @@ class NewFurniture extends React.Component {
               </div>
             </div>
           </div>
-          <Swipeable rightAction={handleRightSwipe} leftAction={handleLeftSwipe}>
-            <div className='row'>
-              {categoryProducts
-                .slice(activePage * 8, (activePage + 1) * 8)
-                .map(item => (
-                  <div
-                    key={item.id}
-                    className={`${styles.itemDiv} col-3 col-md-4 col-sm-6`}
-                  >
-                    <ProductBox {...item} />
-                  </div>
-                ))}
+          <Swipeable
+            rightAction={this.handleRightSwipe}
+            leftAction={this.handleLeftSwipe}
+          >
+            <div
+              className={`${styles.products} ${
+                this.state.fadeState ? styles[this.state.fadeState] : ''
+              }`}
+              onAnimationEnd={this.handleAnimationEnd}
+            >
+              <div className='row'>
+                {categoryProducts
+                  .slice(activePage * 8, (activePage + 1) * 8)
+                  .map(item => (
+                    <div
+                      key={item.id}
+                      className={`${styles.itemDiv} col-3 col-md-4 col-sm-6`}
+                    >
+                      <ProductBox {...item} />
+                    </div>
+                  ))}
+              </div>
             </div>
           </Swipeable>
         </div>
@@ -100,7 +159,6 @@ class NewFurniture extends React.Component {
 }
 
 NewFurniture.propTypes = {
-  children: PropTypes.node,
   categories: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,

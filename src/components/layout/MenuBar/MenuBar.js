@@ -19,7 +19,7 @@ const MenuBar = ({ children }) => {
           <div className={'col ' + styles.productSearch}>
             <ProductSearch />
           </div>
-          <div className={`col-auto ' ${styles.menu} ${isMenuOpen ? 'open' : ''}`}>
+          <div className={`col-auto' ${styles.menu} ${isMenuOpen ? 'open' : ''}`}>
             <a onClick={toggleMenu} className={styles.menuLabel}>
               <span className={styles.hamburger}></span>
             </a>
