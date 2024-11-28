@@ -20,7 +20,7 @@ const StickyBar = () => {
     <>
       {stateCheck && listItem.length > 0 ? (
         <div className={styles.root}>
-          <div className='row'>
+          <div className={styles.compareRow}>
             {listItem.map((item, index) => (
               <>
                 <div className='columns'>
