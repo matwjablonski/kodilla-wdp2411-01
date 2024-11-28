@@ -8,6 +8,9 @@ export const getNew = ({ products }) =>
 export const getHotDeals = ({ products }) =>
   products.filter(item => item.HotDeal === true);
 
+export const getPromotedItems = ({ products }) =>
+  products.filter(item => item.promotedItem === true);
+
 /* reducer */
 export default function reducer(statePart = [], action = {}) {
   switch (action.type) {

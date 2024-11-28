@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+
 import styles from './PromotedProducts.module.scss';
 import HotDealsBox from '../../common/HotDealsBox/HotDealsBox';
 
@@ -8,7 +8,5 @@ const PromotedProducts = () => (
     <HotDealsBox />
   </div>
 );
-
-PromotedProducts.propTypes = {};
 
 export default PromotedProducts;
