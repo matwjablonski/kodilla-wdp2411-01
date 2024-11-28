@@ -16,7 +16,7 @@ const initialState = {
       stars: 2,
       promo: 'sale',
       newFurniture: true,
-      isFavorite: false,
+      isFavorite: true,
       isCompared: false,
     },
     {
@@ -27,7 +27,7 @@ const initialState = {
       stars: 2,
       promo: 'sale',
       newFurniture: true,
-      isFavorite: true,
+      isFavorite: false,
       isCompared: false,
     },
     {
@@ -49,7 +49,7 @@ const initialState = {
       stars: 2,
       promo: 'sale',
       newFurniture: true,
-      isFavorite: true,
+      isFavorite: false,
       isCompared: true,
     },
     {
@@ -82,7 +82,7 @@ const initialState = {
       stars: 2,
       promo: 'sale',
       newFurniture: true,
-      isFavorite: true,
+      isFavorite: false,
       isCompared: false,
     },
     {
@@ -93,7 +93,7 @@ const initialState = {
       stars: 2,
       promo: 'sale',
       newFurniture: true,
-      isFavorite: true,
+      isFavorite: false,
       isCompared: false,
     },
     {
@@ -115,7 +115,7 @@ const initialState = {
       stars: 2,
       promo: 'sale',
       newFurniture: true,
-      isFavorite: true,
+      isFavorite: false,
       isCompared: true,
     },
     {
@@ -148,7 +148,7 @@ const initialState = {
       stars: 2,
       promo: 'sale',
       newFurniture: true,
-      isFavorite: true,
+      isFavorite: false,
       isCompared: false,
     },
     {
@@ -181,7 +181,7 @@ const initialState = {
       stars: 2,
       promo: 'sale',
       newFurniture: true,
-      isFavorite: true,
+      isFavorite: false,
       isCompared: false,
     },
     {
@@ -203,7 +203,7 @@ const initialState = {
       stars: 2,
       promo: 'sale',
       newFurniture: true,
-      isFavorite: true,
+      isFavorite: false,
       isCompared: true,
     },
     {
@@ -236,7 +236,7 @@ const initialState = {
       stars: 2,
       promo: 'sale',
       newFurniture: true,
-      isFavorite: true,
+      isFavorite: false,
       isCompared: false,
     },
     {
@@ -258,7 +258,7 @@ const initialState = {
       stars: 2,
       promo: 'sale',
       newFurniture: true,
-      isFavorite: true,
+      isFavorite: false,
       isCompared: false,
     },
     {
