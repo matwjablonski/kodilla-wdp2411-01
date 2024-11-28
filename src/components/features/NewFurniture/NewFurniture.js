@@ -9,15 +9,57 @@ class NewFurniture extends React.Component {
   state = {
     activePage: 0,
     activeCategory: 'bed',
+    fadeState: '',
   };
 
-  handlePageChange(newPage) {
-    this.setState({ activePage: newPage });
+  handlePageChange = newPage => {
+    if (newPage !== this.state.activePage) {
+      this.setState({
+        fadeState: 'fade-out',
+        pendingPage: newPage,
+      });
+    }
+  };
+
+  handleCategoryChange = newCategory => {
+    if (newCategory !== this.state.activeCategory) {
+      this.setState({
+        fadeState: 'fade-out',
+        pendingCategory: newCategory,
+        pendingPage: 0,
+      });
+    }
+  };
+
+  startFadeTransition(callback) {
+    this.setState({ fadeState: 'fade-out' });
+    setTimeout(() => {
+      callback();
+      this.setState({ fadeState: 'fade-in' });
+      setTimeout(() => {
+        this.setState({ fadeState: '' });
+      }, 500);
+    }, 500);
   }
 
-  handleCategoryChange(newCategory) {
-    this.setState({ activeCategory: newCategory });
-  }
+  handleAnimationEnd = () => {
+    if (this.state.fadeState === 'fade-out') {
+      this.setState(prevState => ({
+        activeCategory:
+          prevState.pendingCategory !== null
+            ? prevState.pendingCategory
+            : prevState.activeCategory,
+        activePage:
+          prevState.pendingPage !== null ? prevState.pendingPage : prevState.activePage,
+        fadeState: 'fade-in',
+        pendingCategory: null,
+        pendingPage: null,
+      }));
+    } else if (this.state.fadeState === 'fade-in') {
+      // Po zakończeniu fade-in resetujemy fadeState
+      this.setState({ fadeState: '' });
+    }
+  };
 
   render() {
     const { categories, products } = this.props;
@@ -42,13 +84,17 @@ class NewFurniture extends React.Component {
 
     const handleLeftSwipe = () => {
       if (activePage < pagesCount - 1) {
-        this.setState({ activePage: activePage + 1 });
+        this.startFadeTransition(() => {
+          this.setState({ activePage: activePage + 1 });
+        });
       }
     };
 
     const handleRightSwipe = () => {
       if (activePage > 0) {
-        this.setState({ activePage: activePage - 1 });
+        this.startFadeTransition(() => {
+          this.setState({ activePage: activePage - 1 });
+        });
       }
     };
 
@@ -80,17 +126,24 @@ class NewFurniture extends React.Component {
             </div>
           </div>
           <Swipeable rightAction={handleRightSwipe} leftAction={handleLeftSwipe}>
-            <div className='row'>
-              {categoryProducts
-                .slice(activePage * 8, (activePage + 1) * 8)
-                .map(item => (
-                  <div
-                    key={item.id}
-                    className={`${styles.itemDiv} col-3 col-md-4 col-sm-6`}
-                  >
-                    <ProductBox {...item} />
-                  </div>
-                ))}
+            <div
+              className={`${styles.products} ${
+                this.state.fadeState ? styles[this.state.fadeState] : ''
+              }`}
+              onAnimationEnd={this.handleAnimationEnd}
+            >
+              <div className='row'>
+                {categoryProducts
+                  .slice(activePage * 8, (activePage + 1) * 8)
+                  .map(item => (
+                    <div
+                      key={item.id}
+                      className={`${styles.itemDiv} col-3 col-md-4 col-sm-6`}
+                    >
+                      <ProductBox {...item} />
+                    </div>
+                  ))}
+              </div>
             </div>
           </Swipeable>
         </div>

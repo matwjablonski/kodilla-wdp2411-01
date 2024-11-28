@@ -1,6 +1,33 @@
 @import "../../../styles/settings.scss";
 
 .root {
+  .products {
+    &.fade-out {
+      animation: fadeOutAnimation 0.5s forwards;
+    }
+    &.fade-in {
+      animation: fadeInAnimation 0.5s forwards;
+    }
+  }
+
+  @keyframes fadeOutAnimation {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes fadeInAnimation {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
   .panelBar {
     margin-bottom: 30px;
     position: relative;

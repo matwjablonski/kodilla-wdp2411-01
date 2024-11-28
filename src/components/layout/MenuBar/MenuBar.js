@@ -16,10 +16,10 @@ const MenuBar = ({ children }) => {
     <div className={styles.root}>
       <div className='container'>
         <div className='row align-items-center'>
-          <div className={'col ' + styles.productSearch}>
+          <div className={'col' + styles.productSearch}>
             <ProductSearch />
           </div>
-          <div className={`col-auto ' ${styles.menu} ${isMenuOpen ? 'open' : ''}`}>
+          <div className={`col-auto' ${styles.menu} ${isMenuOpen ? 'open' : ''}`}>
             <a onClick={toggleMenu} className={styles.menuLabel}>
               <span className={styles.hamburger}></span>
             </a>
