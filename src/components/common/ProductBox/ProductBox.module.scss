@@ -88,23 +88,22 @@
     display: flex;
   }
   .favorite {
-    color: black;
-
+    color: $color-black;
     &.active {
-      color: red;
+      color: $color-red;
+      background-color: $primary;
     }
   }
   .compare {
-    color: black;
-
+    color: $color-black;
     &.active {
-      color: lightgreen;
+      color: $color-lightgreen;
     }
   }
 }
 
-.root:hover{
-  .buttons{
+.root:hover {
+  .buttons {
     display: flex;
   }
   .price{
