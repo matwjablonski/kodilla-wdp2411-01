@@ -54,7 +54,7 @@
     }
 
     .copyright {
-      p {
+      .copyrightText {
         margin: 0;
         color: $footer-bootom-bar-copyright-text-color;
         font-size: 14px;
@@ -86,6 +86,21 @@
           }
         }
       }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .root{
+    img{
+      position: absolute;
+      right: 10%;
+    }
+    .socialMedia a{
+      font-size: 10px;
+    }
+    .bottomBar .copyright .copyrightText{
+      font-size: 10px;
     }
   }
 }
