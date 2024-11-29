@@ -80,12 +80,18 @@ class NewFurniture extends React.Component {
     return products.filter(item => item.category === activeCategory);
   };
 
+  getProductsPerPage = mode => {
+    return mode === 'desktop' ? 8 : mode === 'tablet' ? 6 : mode === 'mobile' ? 4 : 8;
+  };
+
   render() {
+    const { mode } = this.props.mode;
     const { categories } = this.props;
     const { activeCategory, activePage } = this.state;
 
     const categoryProducts = this.getCategoryProducts();
-    const pagesCount = Math.ceil(categoryProducts.length / 8);
+    const productsPerPage = this.getProductsPerPage(mode);
+    const pagesCount = Math.ceil(categoryProducts.length / productsPerPage);
 
     const dots = [];
     for (let i = 0; i < pagesCount; i++) {
@@ -140,7 +146,10 @@ class NewFurniture extends React.Component {
             >
               <div className='row'>
                 {categoryProducts
-                  .slice(activePage * 8, (activePage + 1) * 8)
+                  .slice(
+                    activePage * productsPerPage,
+                    (activePage + 1) * productsPerPage
+                  )
                   .map(item => (
                     <div
                       key={item.id}
@@ -176,6 +185,7 @@ NewFurniture.propTypes = {
       newFurniture: PropTypes.bool,
     })
   ),
+  mode: PropTypes.string,
 };
 
 NewFurniture.defaultProps = {

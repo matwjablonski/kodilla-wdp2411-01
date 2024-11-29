@@ -4,7 +4,7 @@ import NewFurniture from './NewFurniture';
 
 describe('Component NewFurniture', () => {
   it('should render without crashing', () => {
-    const component = shallow(<NewFurniture />);
+    const component = shallow(<NewFurniture mode={{}} />);
     expect(component).toBeTruthy();
   });
 });
