@@ -81,7 +81,7 @@ class NewFurniture extends React.Component {
   };
 
   getProductsPerPage = mode => {
-    return mode === 'desktop' ? 9 : mode === 'tablet' ? 6 : mode === 'mobile' ? 4 : 9;
+    return mode === 'desktop' ? 8 : mode === 'tablet' ? 6 : mode === 'mobile' ? 4 : 8;
   };
 
   render() {
