@@ -35,13 +35,13 @@ const StickyBar = () => {
                     />
                     <FontAwesomeIcon className={styles.icon} icon={faWindowClose} />
                   </div>
-                  <Button variant='small' className={styles.button}>
-                    COMPARE
-                  </Button>
                 </div>
               </>
             ))}
           </div>
+          <Button variant='small' className={styles.button}>
+            COMPARE
+          </Button>
         </div>
       ) : null}
       ;
