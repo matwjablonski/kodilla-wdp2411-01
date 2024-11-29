@@ -9,10 +9,17 @@ $primary: #d58e32;
 $text-color: #2a2a2a;
 $form-border-color: #292929;
 
+
+$header-bg: #363636;
+$footer-bg: #363636;
+$header-topbar-bg: #434343;
+
+
 $color-black: #000000;
 $color-red: #ff0000;
 $color-lightgreen: #90EE90;
 $color-lightgray: #D3D3D3;
+
 
 $header-bg: #363636;
 $footer-bg: #363636;
@@ -104,6 +111,18 @@ $Swipeble-background-color: #ffffff;
 
 $red-line-through: #ff0000;
 
+
+
+//StickyBar Component
+$StickyBar-background-color: #fff;
+$StickyBar-border:#e1e1e1;
+
+$StickyBar-foto-box-background-color: #f4f5f7;
+$StickyBar-foto-box-background-color-active: #000000;
+$StickyBar-foto-box-color: #000000;
+
+$StickyBar-foto-box-icon-color: #000000;
+
 $btn-price-hover: #ff0000;
 
 $countdown-circle-background: rgba(41, 41, 41, 0.7);
@@ -120,5 +139,6 @@ $hover-transform-y: translateY(0);
 %hover-effect-transform {
   transform: $hover-transform-x $hover-transform-y;
 }
+
 
 $red-line-through: #ff0000;

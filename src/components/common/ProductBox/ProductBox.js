@@ -1,5 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {
+  addProductToCompare,
+  removeProductToCompare,
+} from '../../../redux/productsCompareRedux';
+import store from '../../../redux/store';
 
 import styles from './ProductBox.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,25 +16,51 @@ import {
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
 import { useDispatch } from 'react-redux';
-import { toggleFavorite } from '../../../redux/productsRedux';
+import { toggleFavorite, toggleCompare } from '../../../redux/productsRedux';
 
-const ProductBox = ({ id, name, price, oldPrice, promo, stars, isFavorite, isCompared }) => {
+const compare = id => {
+  const state = store.getState();
+  const productsCompare = state.compare;
+  if (productsCompare.length <= 3) {
+    store.dispatch(
+      productsCompare.includes(id)
+        ? removeProductToCompare(id)
+        : addProductToCompare(id)
+    );
+    store.dispatch(toggleCompare(id));
+  }
+};
+
+const ProductBox = ({
+  id,
+  name,
+  price,
+  oldPrice,
+  promo,
+  stars,
+  isFavorite,
+  isCompared,
+}) => {
   const dispatch = useDispatch();
   const changeFavorite = (event, productId) => {
     event.preventDefault();
     dispatch(toggleFavorite(productId));
   };
+
   return (
     <div className={styles.root}>
       <div className={styles.photo}>
-        <img src={`/images/products/${id}.jpg`} alt={name} />
-        {promo && <div className={styles.sale}>{promo}</div>}
-        <div className={styles.buttons}>
-          <Button variant='small'>Quick View</Button>
-          <Button variant='small'>
-            <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
-          </Button>
+        <div className={styles.imageWraper}>
+          <img src={`/images/products/${id}.jpg`} alt={name} />
+          <div className={styles.buttons}>
+            <Button variant='small'>Quick View</Button>
+            <Button variant='small'>
+              <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
+            </Button>
+          </div>
         </div>
+        {promo && <div className={styles.sale}>{promo}</div>}
+
         <div className={styles.content}>
           <h5>{name}</h5>
           <div className={styles.stars}>
@@ -61,7 +92,14 @@ const ProductBox = ({ id, name, price, oldPrice, promo, stars, isFavorite, isCom
                 Favorite
               </FontAwesomeIcon>
             </Button>
-            <Button variant='outline'>
+            <Button
+              variant='outline'
+              className={`${styles.compare} ${isCompared ? styles.active : ''}`}
+              onClick={e => {
+                compare(id);
+                e.preventDefault();
+              }}
+            >
               <FontAwesomeIcon
                 className={`${styles.compare} ${isCompared ? styles.active : ''}`}
                 icon={faExchangeAlt}
@@ -73,14 +111,14 @@ const ProductBox = ({ id, name, price, oldPrice, promo, stars, isFavorite, isCom
           <div className={styles.priceBox}>
             <div className={styles.price}>
               <Button noHover variant='small'>
-            $ {price}
+                $ {price}
               </Button>
             </div>
 
             {oldPrice && (
               <div className={styles.price}>
                 <Button noHover variant='strikeThrough'>
-              $ {oldPrice}
+                  $ {oldPrice}
                 </Button>
               </div>
             )}

@@ -7,14 +7,18 @@ import FeatureBoxes from '../../features/FeatureBoxes/FeatureBoxes';
 import NewFurniture from '../../features/NewFurniture/NewFurnitureContainer';
 import PromotedProducts from '../../features/PromotedProducts/PromotedProducts';
 
-const Homepage = () => (
-  <div className={styles.root}>
-    <PromotedProducts />
-    <FeatureBoxes />
-    <NewFurniture />
-  </div>
-);
+const Homepage = mode => {
+  return (
+    <div className={styles.root}>
+      <PromotedProducts />
+      <FeatureBoxes />
+      <NewFurniture mode={mode} />
+    </div>
+  );
+};
 
-Homepage.propTypes = {};
+Homepage.propTypes = {
+  mode: PropTypes.string,
+};
 
 export default Homepage;
