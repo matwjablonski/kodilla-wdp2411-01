@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { addProductToCompare } from '../../../redux/productsCompareRedux';
+import {
+  addProductToCompare,
+  removeProductToCompare,
+} from '../../../redux/productsCompareRedux';
 import store from '../../../redux/store';
 
 import styles from './ProductBox.module.scss';
@@ -13,14 +16,18 @@ import {
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
 import { useDispatch } from 'react-redux';
-import { toggleFavorite } from '../../../redux/productsRedux';
+import { toggleFavorite, toggleCompare } from '../../../redux/productsRedux';
 
 const compare = id => {
   const state = store.getState();
   const productsCompare = state.compare;
-
   if (productsCompare.length <= 3) {
-    store.dispatch(addProductToCompare(id));
+    store.dispatch(
+      productsCompare.includes(id)
+        ? removeProductToCompare(id)
+        : addProductToCompare(id)
+    );
+    store.dispatch(toggleCompare(id));
   }
 };
 
@@ -39,6 +46,7 @@ const ProductBox = ({
     event.preventDefault();
     dispatch(toggleFavorite(productId));
   };
+
   return (
     <div className={styles.root}>
       <div className={styles.photo}>

@@ -7,9 +7,11 @@ import { faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import store from '../../../redux/store';
 import { removeProductToCompare } from '../../../redux/productsCompareRedux';
 import Button from '../../common/Button/Button';
+import { toggleCompare } from '../../../redux/productsRedux';
 
-const deleteItemFromCompareList = index => {
+const deleteItemFromCompareList = (index, item) => {
   store.dispatch(removeProductToCompare(index));
+  store.dispatch(toggleCompare(item));
 };
 
 const StickyBar = () => {
@@ -27,7 +29,7 @@ const StickyBar = () => {
                   <div
                     key={index}
                     className={styles.fotoBox}
-                    onClick={() => deleteItemFromCompareList(index)}
+                    onClick={() => deleteItemFromCompareList(index, item)}
                   >
                     <img
                       src={`/images/products/${item}.jpg`}
