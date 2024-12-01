@@ -1,0 +1,94 @@
+@import "../../../styles/settings.scss";
+
+.root {
+    img{
+        object-fit: cover;
+    }
+    .promoBox{
+        display: flex;
+        margin-bottom: 10vh;
+        margin-left: 0;
+    }
+    .bigImage{
+        height: 600px;
+        width: 100%;
+        padding-right: 20px;
+    }
+    .smallImage{
+        height: 275px;
+        width: 100%;
+        padding-left: 20px;
+    }
+    .bigPromo{
+        width: calc(50% - 20px);
+    }
+    .smallPromo{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+    }
+    .darkBack{
+        width: 30%;
+        height: 63%;
+        left: 15%;
+        top: 77%;
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.5);
+        p{
+            display: flex;
+            position: relative;
+            font-size: 5vh;
+            top: 50%;
+            margin-left: 3vh;
+            color: $productBox-background-color;
+        }
+    }
+    .where{
+        text-transform: uppercase;
+        font-weight: bolder;
+    }
+    .what{
+        text-transform: uppercase;
+        font-weight: bolder;
+    }
+    .howMuch{
+        padding: 3px;
+        padding-left: 10px;
+        border: 5px solid;
+        width: 30%;
+    }
+    .textFirstImage{
+        position: absolute;
+        top: 80%;
+        left: 63.5%;
+        p{
+            font-size: 3.5vh;
+            text-transform: uppercase;
+            margin-block: 0px;
+        }
+    }
+    .bold{
+        font-weight: bolder;
+    }
+    .price{
+        color: $primary;
+        font-weight: bolder;
+    }
+    .textSecondImage{
+        position: absolute;
+        top: 123%;
+        left: 67.5%;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        p{
+            text-transform: uppercase;
+            margin-block: 0px;
+        }
+        .collection{
+            color: $primary;
+            font-size: 3.3vh;
+        }
+    }
+}

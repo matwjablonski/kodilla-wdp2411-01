@@ -5,6 +5,12 @@ export const getCount = ({ products }) => products.length;
 export const getNew = ({ products }) =>
   products.filter(item => item.newFurniture === true);
 
+export const getBigDisplayPromo = ({ products }) =>
+  products.filter(item => item.bigDisplayPromo === true);
+
+export const getSmallDisplayPromo = ({ products }) =>
+  products.filter(item => item.smallDisplayPromo === true);
+
 export const getHotDeals = ({ products }) =>
   products.filter(item => item.HotDeal === true);
 

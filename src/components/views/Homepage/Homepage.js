@@ -5,6 +5,7 @@ import styles from './Homepage.module.scss';
 
 import FeatureBoxes from '../../features/FeatureBoxes/FeatureBoxes';
 import NewFurniture from '../../features/NewFurniture/NewFurnitureContainer';
+import PromotionBox from '../../features/PromotionBox/PromotionBox';
 import PromotedProducts from '../../features/PromotedProducts/PromotedProducts';
 
 const Homepage = mode => {
@@ -12,6 +13,7 @@ const Homepage = mode => {
     <div className={styles.root}>
       <PromotedProducts />
       <FeatureBoxes />
+      <PromotionBox />
       <NewFurniture mode={mode} />
     </div>
   );
