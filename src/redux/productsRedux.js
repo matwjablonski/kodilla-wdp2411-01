@@ -5,19 +5,12 @@ export const getCount = ({ products }) => products.length;
 export const getNew = ({ products }) =>
   products.filter(item => item.newFurniture === true);
 
-export const getHotDeals = ({ products }) =>
-  products.filter(item => item.HotDeal === true);
-
-export const getPromotedItems = ({ products }) =>
-  products.filter(item => item.promotedItem === true);
-
 export const toggleFavorite = payload => ({ type: TOGGLE_PRODUCT_FAVORITE, payload });
 export const toggleCompare = payload => ({ type: TOGGLE_PRODUCT_COMPARE, payload });
 
 const createActionName = actionName => `app/products/${actionName}`;
 const TOGGLE_PRODUCT_FAVORITE = createActionName('TOGGLE_PRODUCT_FAVORITE');
 const TOGGLE_PRODUCT_COMPARE = createActionName('TOGGLE_PRODUCT_COMPARE');
-
 
 /* reducer */
 export default function reducer(statePart = [], action = {}) {
