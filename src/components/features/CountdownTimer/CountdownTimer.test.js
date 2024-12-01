@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import NewFurniture from './NewFurniture';
+import CountdownTimer from './CountdownTimer';
 
-describe('Component NewFurniture', () => {
+describe('Component CountdownTimer', () => {
   it('should render without crashing', () => {
-    const component = shallow(<NewFurniture mode={{}} />);
+    const component = shallow(<CountdownTimer />);
     expect(component).toBeTruthy();
   });
 });

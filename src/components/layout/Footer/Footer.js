@@ -16,8 +16,8 @@ const Footer = ({ children }) => (
   <footer className={styles.root}>
     <div className={styles.footerMenu}>
       <div className='container'>
-        <div className='row'>
-          <div className='col'>
+        <div className={`${styles.footerLinks} row`}>
+          <div className='col col-md col-6'>
             <div className={styles.menuWrapper}>
               <h6>Information</h6>
               <ul>
@@ -36,7 +36,7 @@ const Footer = ({ children }) => (
               </ul>
             </div>
           </div>
-          <div className='col'>
+          <div className='col col-md col-6'>
             <div className={styles.menuWrapper}>
               <h6>My account</h6>
               <ul>
@@ -55,7 +55,7 @@ const Footer = ({ children }) => (
               </ul>
             </div>
           </div>
-          <div className='col'>
+          <div className='col col-md col-6'>
             <div className={styles.menuWrapper}>
               <h6>Information</h6>
               <ul>
@@ -74,7 +74,7 @@ const Footer = ({ children }) => (
               </ul>
             </div>
           </div>
-          <div className='col'>
+          <div className='col col-md col-6'>
             <div className={styles.menuWrapper}>
               <h6>Orders</h6>
               <ul>
@@ -100,11 +100,13 @@ const Footer = ({ children }) => (
     <div className={styles.bottomBar}>
       <div className='container'>
         <div className='row align-items-center'>
-          <div className='col'></div>
-          <div className={'col text-center ' + styles.copyright}>
-            <p>©Copyright 2016 Bazar | All Rights Reserved</p>
+          <div className='col-lg col-md-12 col-12 text-center'></div>
+          <div className={'col-lg col-md-6 col-6 text-center ' + styles.copyright}>
+            <p className={styles.copyrightText}>
+              ©Copyright 2016 Bazar | All Rights Reserved
+            </p>
           </div>
-          <div className={'col text-right ' + styles.socialMedia}>
+          <div className={'col-lg col-md-6 col-6 text-right ' + styles.socialMedia}>
             <ul>
               <li>
                 <a href='#'>

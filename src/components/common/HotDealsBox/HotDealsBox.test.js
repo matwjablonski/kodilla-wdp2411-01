@@ -1,14 +1,14 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import ProductBox from './ProductBox';
+import HotDealsBox from './HotDealsBox';
 import { Provider } from 'react-redux';
 import store from '../../../redux/store';
+import { mount } from 'enzyme';
 
-describe('Component ProductBox', () => {
+describe('Component HotDealsBox', () => {
   it('should render without crashing', () => {
-    const component = shallow(
+    const component = mount(
       <Provider store={store}>
-        <ProductBox />
+        <HotDealsBox />
       </Provider>
     );
     expect(component).toBeTruthy();
