@@ -138,5 +138,14 @@
       flex: 0 0 50%;
       max-width: 50%;
     }
+    .dots{
+      display: none;
+    }
+    .panelBar .menu ul li{
+      margin: 0 0.2rem;
+    }
+    .panelBar .menu ul li a{
+      font-size: 11px;
+    }
   }
 }
