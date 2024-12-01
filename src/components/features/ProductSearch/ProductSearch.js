@@ -12,7 +12,7 @@ const ProductSearch = () => (
       <ul>
         <li className={styles.selectCategory}>
           <FontAwesomeIcon className={styles.icon} icon={faListUl} />
-          <select>
+          <select className={styles.selectCatFont}>
             <option value=''>Select a category</option>
           </select>
           <FontAwesomeIcon className={styles.icon} icon={faCaretDown} />
