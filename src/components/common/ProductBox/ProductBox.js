@@ -18,16 +18,20 @@ import Button from '../Button/Button';
 import { useDispatch } from 'react-redux';
 import { toggleFavorite, toggleCompare } from '../../../redux/productsRedux';
 
-const compare = id => {
+const compare = (id, isCompared) => {
   const state = store.getState();
   const productsCompare = state.compare;
-  if (productsCompare.length <= 3) {
-    store.dispatch(
-      productsCompare.includes(id)
-        ? removeProductToCompare(id)
-        : addProductToCompare(id)
-    );
-    store.dispatch(toggleCompare(id));
+  if(isCompared){
+    return;
+  } else{
+    if (productsCompare.length <= 3) {
+      store.dispatch(
+        productsCompare.includes(id)
+          ? removeProductToCompare(id)
+          : addProductToCompare(id)
+      );
+      store.dispatch(toggleCompare(id));
+    }
   }
 };
 
@@ -41,6 +45,7 @@ const ProductBox = ({
   isFavorite,
   isCompared,
 }) => {
+
   const dispatch = useDispatch();
   const changeFavorite = (event, productId) => {
     event.preventDefault();
@@ -96,7 +101,7 @@ const ProductBox = ({
               variant='outline'
               className={`${styles.compare} ${isCompared ? styles.active : ''}`}
               onClick={e => {
-                compare(id);
+                compare(id, isCompared);
                 e.preventDefault();
               }}
             >
