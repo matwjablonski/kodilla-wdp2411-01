@@ -12,11 +12,12 @@ const MenuBar = ({ children }) => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+  const col = 'col ';
   return (
     <div className={styles.root}>
       <div className='container'>
         <div className='row align-items-center'>
-          <div className={'col ' + styles.productSearch}>
+          <div className={col + styles.productSearch}>
             <ProductSearch />
           </div>
           <div className={`col-auto' ${styles.menu} ${isMenuOpen ? 'open' : ''}`}>
